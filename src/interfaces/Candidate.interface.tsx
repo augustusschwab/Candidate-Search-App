@@ -1,1 +1,10 @@
-// TODO: Create an interface for the Candidate objects returned by the API
+//An interface for a Candidate object that will contain the data displayed on the card.
+export default interface Candidate {
+    readonly Name: string | null;
+    readonly Username: string | null;
+    readonly Location: string | null;
+    readonly Avatar: string | null;
+    readonly Email: string | null;
+    readonly html_url: string | null;
+    readonly Company: string | null;
+}
