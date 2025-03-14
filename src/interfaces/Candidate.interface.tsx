@@ -5,6 +5,6 @@ export default interface Candidate {
     readonly Location: string | null;
     readonly Avatar: string | null;
     readonly Email: string | null;
-    readonly html_url: string | null;
+    readonly html_url: string;
     readonly Company: string | null;
 }

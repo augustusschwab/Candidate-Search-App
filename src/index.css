@@ -64,7 +64,8 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  transform: scale(1.05); /* Slightly enlarge the button */
+  box-shadow: 0 3px 5px rgba(96, 96, 96, 0.493); /* Increase shadow depth */
 }
 button:focus,
 button:focus-visible {
@@ -102,6 +103,13 @@ tbody tr:nth-child(odd) {
   table-layout: fixed;
 }
 
+.avatar{
+  width: 120px;
+  border-radius: 25px;
+  margin: 15px;
+  border: 2px solid rgb(75, 75, 75)
+}
+
 /* Navigation bar styling */
 .nav {
   display: flex;
@@ -123,7 +131,7 @@ tbody tr:nth-child(odd) {
   font-weight: 700;
 }
 
-/* Candidate Card Styleing */
+/* Candidate Card Styling */
 .candidateCard {
   background-color:#000;
   width: 400px;
@@ -135,9 +143,7 @@ tbody tr:nth-child(odd) {
 }
 
 .candidateCard img{
-  /* width: 400px; */
   object-fit: cover;
-
 }
 
 .candidateCard h2 {
@@ -155,4 +161,35 @@ tbody tr:nth-child(odd) {
 
 .candidateCard p {
   margin: 0px 0px 10px 0px;
+}
+
+/* Decision Buttons - Candidate Search */
+.decision-buttons{
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.decision-button{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 0px 50px;
+  border-radius: 18px;
+  padding: 0;
+}
+
+.decision-button img {
+  max-width: 75px;
+  max-height: 75px;
+  margin: 0;
+}
+
+.add {
+  background-color: green;
+}
+
+.minus {
+  background-color: red;
 }
