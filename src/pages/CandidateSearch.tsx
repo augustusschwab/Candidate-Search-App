@@ -8,6 +8,7 @@ import minusIcon from '../assets/minus.png'
  
 
 const CandidateSearch = () => {
+  const [loading, setLoading] = useState(true);
   const [currentCandidate, setCurrentCandidate] = useState<Candidate>({
     Name: '',
     Username: '',
@@ -45,7 +46,7 @@ const CandidateSearch = () => {
         
         //Sets the candidates variable to the found candidates.
         setCandidates(candidates);
-
+        setLoading(false);
         //Sets the current candidate displayed as the first candidate in the candidates array.
         if(candidates.length > 0){
           setCurrentCandidate(candidates[0]);
@@ -86,25 +87,30 @@ const CandidateSearch = () => {
   }
 
   return (
-      (candidates.length === 0 ? (
+    (loading ? (
+      <>
+        <h1>LOADING CANDIDATES...</h1>
+      </>
+      ) : (candidates.length !== 0 ? (
+          <>
+            <h1>CandidateSearch</h1>
+            <CandidateCard 
+              candidate={currentCandidate}
+            />
+            <div className='decision-buttons'>
+              <button onClick={addToSavedCandidates} className='add decision-button'><img src={plusIcon}/></button>
+              <button onClick={rejectCandidate} className='minus decision-button'><img src={minusIcon}/></button>
+            </div>
+          </>
+        ) : (
           <>
             <h1>NO CANDIDATES AVAILABLE</h1>
             <h2><Link to='/SavedCandidates'>View Potential Candidates</Link></h2>
           </>
-        ) : (
-        <>
-          <h1>CandidateSearch</h1>
-          <CandidateCard 
-            candidate={currentCandidate}
-          />
-          <div className='decision-buttons'>
-            <button onClick={addToSavedCandidates} className='add decision-button'><img src={plusIcon}/></button>
-            <button onClick={rejectCandidate} className='minus decision-button'><img src={minusIcon}/></button>
-          </div>
-        </>
         )
       )
-  ); 
+    )
+  )
 };
 
 export default CandidateSearch;
