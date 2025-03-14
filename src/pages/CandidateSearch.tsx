@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { searchGithub, searchGithubUser} from '../api/API';
 import Candidate from '../interfaces/Candidate.interface';
 import CandidateCard from '../components/CandidateCard';
+import plusIcon from '../assets/more.png'
+import minusIcon from '../assets/minus.png'
  
 
 const CandidateSearch = () => {
@@ -83,16 +86,24 @@ const CandidateSearch = () => {
   }
 
   return (
-    <>
-      <h1>CandidateSearch</h1>
-      <CandidateCard 
-        candidate={currentCandidate}
-      />
-      <div className='buttons'>
-        <button onClick={addToSavedCandidates}>Add</button>
-        <button onClick={rejectCandidate}>Subtract</button>
-      </div>
-    </>
+      (candidates.length === 0 ? (
+          <>
+            <h1>NO CANDIDATES AVAILABLE</h1>
+            <h2><Link to='/SavedCandidates'>View Potential Candidates</Link></h2>
+          </>
+        ) : (
+        <>
+          <h1>CandidateSearch</h1>
+          <CandidateCard 
+            candidate={currentCandidate}
+          />
+          <div className='decision-buttons'>
+            <button onClick={addToSavedCandidates} className='add decision-button'><img src={plusIcon}/></button>
+            <button onClick={rejectCandidate} className='minus decision-button'><img src={minusIcon}/></button>
+          </div>
+        </>
+        )
+      )
   ); 
 };
 
