@@ -17,7 +17,7 @@ To install, clone or download the project folder and run `npm install` from the 
 ## Usage
 This application runs in the web browser. It can be accessed through the following link.
 
-  [Deployed Application](https://drive.google.com/file/d/1zOuDagC7ZivhvsSLGWIie8y_dfHMK5yA/view?usp=sharing)
+  [Deployed Application](https://candidate-search-app-1-st2i.onrender.com/)
 
 
 ## License
